@@ -2,3 +2,36 @@
   background-color: aqua;
   height: 500px;
 }
+
+.perCategory{
+  padding-top: 1em;
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-bottom: 1em;
+}
+
+.title-tile {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+};
+
+.transactionButton{
+  margin-left: 10px;
+}
+
+mat-card-title{
+  font-size: 12pt
+}
+mat-card{
+  width: 80%;
+  height:90%;
+}
+
+mat-list{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+//.main-card{
+//  overflow: auto;
+//}

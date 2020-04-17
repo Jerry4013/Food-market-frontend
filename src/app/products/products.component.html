@@ -1,1 +1,80 @@
-<div class="product"></div>
+<div class="perCategory">
+
+<mat-list>
+  <mat-list-item>{{headerTile.text}}</mat-list-item>
+  <mat-divider></mat-divider>
+  <div>
+    <mat-grid-list cols="3" gutterSize="20px">
+    <mat-grid-tile
+      *ngFor = "let tile of tiles">
+      <mat-card class="main-card" >
+        <img mat-card-image [src]="tile.src">
+        <mat-grid-list  cols="2">
+          <mat-grid-tile>
+            <mat-card-title>{{tile.title}}</mat-card-title>
+            <mat-card-subtitle><br/>${{tile.price}}</mat-card-subtitle>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-card-actions>
+              <button mat-mini-fab class="transactionButton" color="primary"><mat-icon>menu</mat-icon></button>
+              <button mat-mini-fab class="transactionButton" color="accent"><mat-icon>shopping_cart</mat-icon></button>
+            </mat-card-actions>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  </div>
+</mat-list>
+</div>
+
+
+
+  <!--<mat-grid-tile class="title-tile"-->
+    <!--[colspan]= "headerTile.cols"-->
+    <!--[rowspan]= "headerTile.rows"-->
+    <!--[style.background-image] = "headerTile.img"-->
+  <!--&gt;-->
+    <!--{{headerTile.text}}-->
+  <!--</mat-grid-tile>-->
+  <!--<mat-grid-tile-->
+    <!--*ngFor="let tile of tiles"-->
+    <!--&gt;-->
+    <!--<table>-->
+      <!--<tr>-->
+        <!--<td colspan="2">-->
+          <!--<img mat-card-image [src] = "tile.src" >-->
+        <!--</td>-->
+      <!--</tr>-->
+    <!--</table>-->
+
+      <!--&lt;!&ndash;<mat-card-header>&ndash;&gt;-->
+
+        <!--<tr>-->
+          <!--<td width="70%">-->
+            <!--<mat-card-title>-->
+              <!--{{tile.title}}-->
+            <!--</mat-card-title>-->
+            <!--<mat-card-subtitle>-->
+              <!--${{tile.price}}-->
+            <!--</mat-card-subtitle>-->
+          <!--</td>-->
+          <!--<td width = "15%">-->
+            <!--<button mat-mini-fab ><mat-icon>menu</mat-icon></button>-->
+          <!--</td>-->
+          <!--<td width = "15%">-->
+            <!--<button mat-mini-fab><mat-icon>add_shopping_cart</mat-icon></button>-->
+          <!--</td>-->
+        <!--</tr>-->
+
+
+      <!--&lt;!&ndash;</mat-card-header>&ndash;&gt;-->
+      <!--&lt;!&ndash;<mat-card-actions>&ndash;&gt;-->
+
+
+      <!--&lt;!&ndash;</mat-card-actions>&ndash;&gt;-->
+    <!--&lt;!&ndash;</mat-card>&ndash;&gt;-->
+
+  <!--</mat-grid-tile>-->
+<!--</mat-grid-list>-->
+<!--</div>-->
