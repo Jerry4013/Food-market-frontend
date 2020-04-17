@@ -11,6 +11,7 @@ export class DefaultComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    // test
   }
 
   signup = function() {
