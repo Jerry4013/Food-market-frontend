@@ -8,16 +8,22 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  isLogin = false;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  signup() {
-    this.router.navigate(['/default/signup']);
+  login() {
+    this.router.navigate(['/login']);
   }
 
   home() {
-    this.router.navigate(['/default']);
+    this.router.navigate(['']);
+  }
+
+  signup() {
+    this.router.navigate(['/signup']);
   }
 }

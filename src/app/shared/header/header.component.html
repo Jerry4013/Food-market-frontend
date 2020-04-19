@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button aria-label="Example icon button with a home icon" (click)="home()">
+      <mat-icon>home</mat-icon>
+    </button>
+
+    <span>Food Market</span>
+
+    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+      <ul fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="flex-end">
+        <li *ngIf="!isLogin">
+          <button mat-button (click)="login()">Sign in</button>
+        </li>
+        <li>
+          <button mat-raised-button color="warn" (click)="signup()">Sign Up</button>
+        </li>
+      </ul>
+
+    </div>
+
+  </mat-toolbar-row>
+
+</mat-toolbar>
