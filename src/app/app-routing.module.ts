@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {DefaultComponent} from './default/default.component';
-import {LoginComponent} from './user/login/login.component';
-import {SignupComponent} from './user/signup/signup.component';
-import {CategoryComponent} from './category/category.component';
+import {LoginComponent} from './components/user/login/login.component';
+import {SignupComponent} from './components/user/signup/signup.component';
 import {HomeComponent} from './components/home/home.component';
 
 
 const routes: Routes = [
   {
-    path: 'default',
+    path: '',
     component: DefaultComponent,
     children: [
       {path: '', component: HomeComponent},

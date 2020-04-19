@@ -1,6 +1,25 @@
-<app-header></app-header>
+<!--<app-header></app-header>-->
 
-<router-outlet></router-outlet>
+<!--<router-outlet></router-outlet>-->
 
 
-<app-footer></app-footer>
+<!--<app-footer></app-footer>-->
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav-content fxLayout="column">
+
+    <app-header></app-header>
+
+    <router-outlet>
+      <!-- content change by changing the route -->
+    </router-outlet>
+
+    <app-footer fxFlexOffset="auto">
+
+      <p>Test footer</p>
+
+    </app-footer>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

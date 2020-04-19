@@ -6,18 +6,33 @@ import {SharedModule} from '../shared/shared.module';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {CategoryModule} from '../category/category.module';
-import {ProductsModule} from '../products/products.module';
-import { LoginComponent } from '../user/login/login.component';
-import { SignupComponent } from '../user/signup/signup.component';
+import { LoginComponent } from '../components/user/login/login.component';
+import { SignupComponent } from '../components/user/signup/signup.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { HomeComponent } from '../components/home/home.component';
+import {CategoryComponent} from '../components/category/category.component';
+import {ProductsComponent} from '../components/products/products.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {FlexModule} from '@angular/flex-layout';
 
 
 
 
 @NgModule({
-  declarations: [DefaultComponent, LoginComponent, SignupComponent, HomeComponent],
+  declarations: [
+    DefaultComponent,
+    LoginComponent,
+    SignupComponent,
+    HomeComponent,
+    CategoryComponent,
+    ProductsComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -25,9 +40,15 @@ import { HomeComponent } from '../components/home/home.component';
     MatDividerModule,
     MatIconModule,
     MatToolbarModule,
-    CategoryModule,
-    ProductsModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatSidenavModule,
+    FlexModule
   ]
 })
 export class DefaultModule { }
