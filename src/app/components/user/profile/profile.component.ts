@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import {UserModel} from '../../../models/user.model';
 import {AuthService} from '../../../services/auth.service';
 import {Router} from '@angular/router';
-import {UserModel} from '../../../models/user.model';
-import {ErrorModel} from '../../../models/error.model';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {NgForm} from '@angular/forms';
+import {ErrorModel} from '../../../models/error.model';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
-  hide = true;
   user: UserModel;
   errMsg: string;
 
@@ -26,16 +25,17 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
-    this.user = new UserModel(0, f.value.username, f.value.password, f.value.name,
-      f.value.email, f.value.phone, f.value.address);
-    this.authService.signup(this.user).subscribe(response => {
+    this.user.name = f.value.name;
+    this.user.email = f.value.email;
+    this.user.tel = f.value.phone;
+    this.user.address = f.value.address;
+    this.authService.changeInfo(this.user).subscribe(response => {
       if (response.status === 'success' ) {
         this.authService.user = response.data as UserModel;
         this.user = this.authService.user;
         this.authService.userChanged.next(this.user);
-        this.router.navigate(['/']).then();
-        this.snackBar.open('New user created!', 'done', {
-          duration: 2000,
+        this.snackBar.open('Your profile is Updated!', 'done', {
+          duration: 4000,
         });
       } else {
         this.errMsg = (response.data as ErrorModel).errMsg;

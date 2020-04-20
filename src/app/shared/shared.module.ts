@@ -10,13 +10,16 @@ import {MatButtonModule} from '@angular/material/button';
 import {FlexModule} from '@angular/flex-layout';
 import {RouterModule} from '@angular/router';
 import {MatListModule} from '@angular/material/list';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
@@ -27,11 +30,13 @@ import {MatListModule} from '@angular/material/list';
     MatButtonModule,
     FlexModule,
     RouterModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SidebarComponent
   ]
 })
 export class SharedModule { }

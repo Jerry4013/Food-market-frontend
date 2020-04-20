@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import { DefaultComponent } from './default.component';
 import {RouterModule} from '@angular/router';
 import {SharedModule} from '../shared/shared.module';
@@ -20,6 +20,11 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {FlexModule} from '@angular/flex-layout';
+import { PasswordComponent } from '../components/user/password/password.component';
+import {AuthService} from '../services/auth.service';
+import {HttpClientModule} from '@angular/common/http';
+import { ProfileComponent } from '../components/user/profile/profile.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -31,7 +36,9 @@ import {FlexModule} from '@angular/flex-layout';
     SignupComponent,
     HomeComponent,
     CategoryComponent,
-    ProductsComponent
+    ProductsComponent,
+    PasswordComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +55,14 @@ import {FlexModule} from '@angular/flex-layout';
     MatInputModule,
     FormsModule,
     MatSidenavModule,
-    FlexModule
-  ]
+    FlexModule,
+    HttpClientModule,
+    MatSnackBarModule
+  ],
+  providers: [
+    AuthService,
+    // AuthGuardService,
+    DatePipe
+  ],
 })
 export class DefaultModule { }
