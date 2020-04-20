@@ -6,13 +6,11 @@ export interface PeriodicElement {
   price: string;
   stock: string;
   description: string;
-  modify: string;
-  outofstock: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'fish', image: 3, price: '4.0', description: 'yumy', stock: '3', modify: 'm', outofstock: 'o'},
-  {position: 2, name: 'bird', image: 6, price: '7.0', description: 'eh', stock: '0', modify: 'm', outofstock: 'o'}
+  {position: 1, name: 'fish', image: 3, price: '4.0', description: 'yumy', stock: '3'},
+  {position: 2, name: 'bird', image: 6, price: '7.0', description: 'eh', stock: '0'}
 ];
 
 @Component({
