@@ -25,6 +25,10 @@ import {AuthService} from '../services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
 import { ProfileComponent } from '../components/user/profile/profile.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { BuyerOrdersComponent } from '../components/buyer-orders/buyer-orders.component';
+import {OrderService} from '../services/order.service';
+import {MatListModule} from '@angular/material/list';
+import {OrderstatusPipe} from '../pipes/orderstatus.pipe';
 
 
 
@@ -38,7 +42,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     CategoryComponent,
     ProductsComponent,
     PasswordComponent,
-    ProfileComponent
+    ProfileComponent,
+    BuyerOrdersComponent,
+    OrderstatusPipe
   ],
   imports: [
     CommonModule,
@@ -57,10 +63,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSidenavModule,
     FlexModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatListModule
   ],
   providers: [
     AuthService,
+    OrderService,
     // AuthGuardService,
     DatePipe
   ],
