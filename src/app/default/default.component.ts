@@ -8,13 +8,15 @@ import {Router} from '@angular/router';
 })
 export class DefaultComponent implements OnInit {
 
+  sideBarOpen = true;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    // test
   }
 
-  signup = function() {
-    this.router.navigate(['/signup']);
-  };
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
+
 }

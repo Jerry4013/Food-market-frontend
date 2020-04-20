@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
+import {AuthService} from '../../services/auth.service';
+import {UserModel} from '../../models/user.model';
+import {Subject, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -8,22 +11,53 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  isLogin = false;
+  user: UserModel;
+  userSub: Subscription;
 
-  constructor(private router: Router) { }
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    this.userSub = this.authService.userChanged.subscribe(
+      user => {
+        this.user = user;
+      }
+    );
+  }
+
+  toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
   }
 
   login() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login']).then();
   }
 
   home() {
-    this.router.navigate(['']);
+    this.router.navigate(['']).then();
   }
 
   signup() {
-    this.router.navigate(['/signup']);
+    this.router.navigate(['/signup']).then();
+  }
+
+  profile() {
+    this.router.navigate(['/profile']).then();
+  }
+
+  changePassword() {
+    this.router.navigate(['/pwd']).then();
+  }
+
+  signOut() {
+    this.authService.user = null;
+    this.authService.userChanged.next(null);
+    this.router.navigate(['']);
   }
 }

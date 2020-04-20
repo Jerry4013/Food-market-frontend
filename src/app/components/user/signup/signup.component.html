@@ -10,7 +10,6 @@
   <!--Card content-->
   <mat-card-content>
 
-    <!-- Form -->
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="text-center" style="color: #757575;">
       <mat-form-field class="full-width-input">
         <input
@@ -27,9 +26,13 @@
         <input
           matInput
           placeholder="password"
+          [type]="hide ? 'password' : 'text'"
           ngModel
           name="password"
           required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
         <mat-error>
           Password is required
         </mat-error>
@@ -80,9 +83,11 @@
         </mat-error>
       </mat-form-field>
 
-
       <!-- Sign up button -->
-      <button mat-raised-button color="primary" type="submit">Sign up</button>
+      <button mat-raised-button color="primary" [disabled]="!f.valid" type="submit">Sign up</button>
+      <mat-error *ngIf="errMsg">
+        {{errMsg}}
+      </mat-error>
 
       <hr>
 
@@ -92,9 +97,8 @@
         <a href="" target="_blank">terms of service</a>. </p>
 
     </form>
-    <!-- Form -->
 
   </mat-card-content>
 
 </mat-card>
-<!-- Material form register -->
+
