@@ -25,6 +25,8 @@ import {AuthService} from '../services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
 import { ProfileComponent } from '../components/user/profile/profile.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { SellerProductsComponent } from '../components/seller-products/seller-products.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -38,7 +40,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     CategoryComponent,
     ProductsComponent,
     PasswordComponent,
-    ProfileComponent
+    ProfileComponent,
+    SellerProductsComponent
   ],
   imports: [
     CommonModule,
@@ -57,7 +60,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSidenavModule,
     FlexModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule
   ],
   providers: [
     AuthService,
