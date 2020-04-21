@@ -7,6 +7,8 @@ import {HomeComponent} from './components/home/home.component';
 import {PasswordComponent} from './components/user/password/password.component';
 import {ProfileComponent} from './components/user/profile/profile.component';
 import {BuyerOrdersComponent} from './components/buyer-orders/buyer-orders.component';
+import {SellerProductComponent} from './components/seller-product/seller-product.component';
+import {AddProductComponent} from './components/add-product/add-product.component';
 
 
 const routes: Routes = [
@@ -20,6 +22,8 @@ const routes: Routes = [
       {path: 'pwd', component: PasswordComponent},
       {path: 'profile', component: ProfileComponent},
       {path: 'buyerorders', component: BuyerOrdersComponent},
+      {path: 'sellerproducts', component: SellerProductComponent},
+      {path: 'addproduct', component: AddProductComponent},
     ]
   }];
 

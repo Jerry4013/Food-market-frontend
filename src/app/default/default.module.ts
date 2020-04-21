@@ -29,6 +29,11 @@ import { BuyerOrdersComponent } from '../components/buyer-orders/buyer-orders.co
 import {OrderService} from '../services/order.service';
 import {MatListModule} from '@angular/material/list';
 import {OrderstatusPipe} from '../pipes/orderstatus.pipe';
+import { SellerProductComponent } from '../components/seller-product/seller-product.component';
+import {MatTableModule} from '@angular/material/table';
+import { AddProductComponent } from '../components/add-product/add-product.component';
+import {MatSelectModule} from '@angular/material/select';
+import {ProductService} from '../services/product.service';
 
 
 
@@ -44,9 +49,12 @@ import {OrderstatusPipe} from '../pipes/orderstatus.pipe';
     PasswordComponent,
     ProfileComponent,
     BuyerOrdersComponent,
-    OrderstatusPipe
+    OrderstatusPipe,
+    SellerProductComponent,
+    AddProductComponent
   ],
   imports: [
+    MatTableModule,
     CommonModule,
     RouterModule,
     SharedModule,
@@ -64,11 +72,13 @@ import {OrderstatusPipe} from '../pipes/orderstatus.pipe';
     FlexModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule
   ],
   providers: [
     AuthService,
     OrderService,
+    ProductService,
     // AuthGuardService,
     DatePipe
   ],

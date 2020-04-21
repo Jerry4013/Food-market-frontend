@@ -10,12 +10,21 @@ export const environment = {
   login: '/login',
   pwdchange: '/pwdchange',
   infochange: '/infochange',
+
   order: '/order',
   listByBuyer: '/listByBuyer',
   pay: '/pay',
   findByOrderId: '/findByOrderId',
   finish: '/finish',
-  cancelledByBuyer: '/cancelledByBuyer'
+  cancelledByBuyer: '/cancelledByBuyer',
+
+  dish: '/dish',
+  all: '/all',
+  listBySeller: '/listBySeller',
+  soldOut: '/soldOut',
+  forSale: '/forSale',
+
+  category: '/category'
 
 };
 
