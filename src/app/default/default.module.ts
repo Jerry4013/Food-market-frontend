@@ -11,7 +11,6 @@ import { SignupComponent } from '../components/user/signup/signup.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { HomeComponent } from '../components/home/home.component';
 import {CategoryComponent} from '../components/category/category.component';
-import {ProductsComponent} from '../components/products/products.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -34,6 +33,7 @@ import {MatTableModule} from '@angular/material/table';
 import { AddProductComponent } from '../components/add-product/add-product.component';
 import {MatSelectModule} from '@angular/material/select';
 import {ProductService} from '../services/product.service';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 
@@ -45,7 +45,6 @@ import {ProductService} from '../services/product.service';
     SignupComponent,
     HomeComponent,
     CategoryComponent,
-    ProductsComponent,
     PasswordComponent,
     ProfileComponent,
     BuyerOrdersComponent,
@@ -61,6 +60,7 @@ import {ProductService} from '../services/product.service';
     MatDividerModule,
     MatIconModule,
     MatToolbarModule,
+    MatGridListModule,
     MatButtonToggleModule,
     MatMenuModule,
     MatButtonModule,

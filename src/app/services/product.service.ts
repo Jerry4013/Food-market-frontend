@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ReturnModel} from '../models/return.model';
 import {environment} from '../../environments/environment';
 import {ProductModel} from '../models/product.model';
-import {CategoryModel} from '../models/category.model';
+
 
 @Injectable()
 export class ProductService {
@@ -25,6 +25,16 @@ export class ProductService {
     return this.http
       .get<ReturnModel>(
         environment.baseUrl + environment.category + environment.all,
+        {
+          headers: new HttpHeaders({ 'withCredentials': 'true'}),
+        }
+      );
+  }
+
+  listAllForSale() {
+    return this.http
+      .get<ReturnModel>(
+        environment.baseUrl + environment.dish + environment.all,
         {
           headers: new HttpHeaders({ 'withCredentials': 'true'}),
         }
