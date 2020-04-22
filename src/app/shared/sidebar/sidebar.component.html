@@ -18,8 +18,8 @@
     <mat-icon>list_ul</mat-icon>
     My Orders
   </a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/member">
-    <mat-icon>shopping_cart</mat-icon>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/cart">
+    <mat-icon [matBadge]="itemNumInCart > 0 ? itemNumInCart : null" matBadgeColor="warn">shopping_cart</mat-icon>
     My Cart
   </a>
 
@@ -27,9 +27,14 @@
 
   <h2 matSubheader>Seller Pages</h2>
 
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/addproduct">
+    <mat-icon>add_box</mat-icon>
+    Post new food
+  </a>
+
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/sellerproducts">
     <mat-icon>fastfood</mat-icon>
-    Food for sale
+    My food for sale
   </a>
 
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/leads">

@@ -9,6 +9,7 @@ import {ProfileComponent} from './components/user/profile/profile.component';
 import {BuyerOrdersComponent} from './components/buyer-orders/buyer-orders.component';
 import {SellerProductComponent} from './components/seller-product/seller-product.component';
 import {AddProductComponent} from './components/add-product/add-product.component';
+import {CartComponent} from './components/cart/cart.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
       {path: 'buyerorders', component: BuyerOrdersComponent},
       {path: 'sellerproducts', component: SellerProductComponent},
       {path: 'addproduct', component: AddProductComponent},
+      {path: 'cart', component: CartComponent},
     ]
   }];
 

@@ -1,14 +1,6 @@
-
-
 <div class="container">
-  <div class="title">
-    <h2>{{user.name}}</h2>
-
-    Username: {{user.username}}
-  </div>
-
-
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="text-center" style="color: #757575;">
+  <h2 *ngIf="orderItems.length == 0">Your cart is empty.</h2>
+  <form *ngIf="orderItems.length != 0" #f="ngForm" (ngSubmit)="onSubmit(f)" class="text-center" style="color: #757575;">
 
     <mat-form-field class="full-width-input">
       <input
@@ -19,18 +11,6 @@
         required>
       <mat-error>
         Name is required
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field class="full-width-input">
-      <input
-        matInput
-        placeholder="email"
-        [ngModel]="user.email"
-        name="email"
-        email
-        required>
-      <mat-error>
-        Email Address must be valid
       </mat-error>
     </mat-form-field>
     <mat-form-field class="full-width-input">
@@ -56,17 +36,15 @@
       </mat-error>
     </mat-form-field>
 
-    <!-- Sign up button -->
-    <button mat-raised-button color="primary" [disabled]="!f.valid" type="submit">Update profile</button>
+    <mat-card *ngFor="let orderItem of orderItems">
+      name: {{orderItem.productName}}
+      quantity: {{orderItem.quantity}}
+    </mat-card>
+    <button mat-raised-button color="primary" [disabled]="!f.valid" type="submit">Place this order</button>
     <mat-error *ngIf="errMsg">
       {{errMsg}}
     </mat-error>
 
-
-    <!-- Terms of service -->
   </form>
 </div>
-
-
-
 

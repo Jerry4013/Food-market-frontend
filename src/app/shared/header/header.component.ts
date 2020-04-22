@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    this.user = this.authService.user;
     this.userSub = this.authService.userChanged.subscribe(
       user => {
         this.user = user;

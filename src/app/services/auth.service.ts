@@ -11,7 +11,9 @@ import {PasswordModel} from '../models/password.model';
 export class AuthService {
 
   userChanged = new Subject<UserModel>();
-  user: UserModel;
+  user: UserModel = new UserModel(1,
+    'youareremoved', 'ohoh123', 'Three Zhang',
+    'abc@gmail.com', '1234567', '124124 sdfka, QC');
 
   constructor(private http: HttpClient) { }
 
@@ -32,7 +34,7 @@ export class AuthService {
 
   changePassword(passwordModel: PasswordModel) {
     return this.http
-      .post<ReturnModel>(
+      .put<ReturnModel>(
         environment.baseUrl + environment.user + environment.pwdchange,
         passwordModel,
         {
@@ -54,7 +56,7 @@ export class AuthService {
 
   changeInfo(userModel: UserModel) {
     return this.http
-      .post<ReturnModel>(
+      .put<ReturnModel>(
         environment.baseUrl + environment.user + environment.infochange,
         userModel,
         {

@@ -34,6 +34,11 @@ import { AddProductComponent } from '../components/add-product/add-product.compo
 import {MatSelectModule} from '@angular/material/select';
 import {ProductService} from '../services/product.service';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {CartComponent, DeleteDialogComponent} from '../components/cart/cart.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ProductInfoComponent } from '../components/home/product-info/product-info.component';
+import { PayconfirmComponent } from '../components/buyer-orders/payconfirm/payconfirm.component';
+import {PaystatusPipe} from '../pipes/paystatus.pipe';
 
 
 
@@ -41,6 +46,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     DefaultComponent,
+    DeleteDialogComponent,
     LoginComponent,
     SignupComponent,
     HomeComponent,
@@ -49,8 +55,12 @@ import {MatGridListModule} from '@angular/material/grid-list';
     ProfileComponent,
     BuyerOrdersComponent,
     OrderstatusPipe,
+    PaystatusPipe,
     SellerProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    CartComponent,
+    ProductInfoComponent,
+    PayconfirmComponent
   ],
   imports: [
     MatTableModule,
@@ -73,7 +83,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     HttpClientModule,
     MatSnackBarModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   providers: [
     AuthService,

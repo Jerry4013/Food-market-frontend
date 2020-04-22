@@ -12,6 +12,7 @@ import {RouterModule} from '@angular/router';
 import {MatListModule} from '@angular/material/list';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 
@@ -21,18 +22,19 @@ import {MatMenuModule} from '@angular/material/menu';
     FooterComponent,
     SidebarComponent
   ],
-  imports: [
-    CommonModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatDividerModule,
-    MatButtonToggleModule,
-    MatButtonModule,
-    FlexModule,
-    RouterModule,
-    MatListModule,
-    MatMenuModule
-  ],
+    imports: [
+        CommonModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatDividerModule,
+        MatButtonToggleModule,
+        MatButtonModule,
+        FlexModule,
+        RouterModule,
+        MatListModule,
+        MatMenuModule,
+        MatBadgeModule
+    ],
   exports: [
     HeaderComponent,
     FooterComponent,
