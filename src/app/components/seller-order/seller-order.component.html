@@ -1,6 +1,6 @@
 <div class="container">
   <h1>My Orders</h1>
-  <mat-card *ngFor="let order of orderList; let i = index">
+  <mat-card *ngFor="let order of sellerOrderList; let i = index">
     <mat-card-title>Order ID: {{order.orderId}}
       (Status: {{order.payStatus | paystatus}}, {{order.orderStatus | orderstatus}})</mat-card-title>
 
@@ -43,10 +43,11 @@
       <div fxLayout="row">
         <div fxFlex fxLayoutAlign="flex-end">
           <button mat-raised-button color="primary"
-                  (click)="confirmPay(order.orderAmount, i)"
-                  [disabled]="order.payStatus !== 0">Pay this order</button>
+                  (click)="confirmFinish(order.orderAmount, i)"
+                  [disabled]="order.payStatus !== 1 || order.orderStatus !== 0">Finish this order</button>
         </div>
       </div>
     </mat-card-content>
   </mat-card>
 </div>
+

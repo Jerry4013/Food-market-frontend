@@ -16,7 +16,7 @@ import {ProductInfoComponent} from './product-info/product-info.component';
 })
 export class HomeComponent implements OnInit {
 
-  products: ProductCategoryVoModel[];
+  products: ProductCategoryVoModel[] = [];
   errMsg: string;
 
   constructor(private productService: ProductService,
@@ -24,13 +24,18 @@ export class HomeComponent implements OnInit {
               public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.productService.listAllForSale().subscribe( response => {
-      if (response.status === 'success' ) {
-        this.products = response.data as ProductCategoryVoModel[];
-      } else {
-        this.errMsg = (response.data as ErrorModel).errMsg;
-      }
-    });
+    if (this.productService.homePageProducts.length === 0) {
+      this.productService.listAllForSale().subscribe( response => {
+        if (response.status === 'success' ) {
+          this.productService.homePageProducts = response.data as ProductCategoryVoModel[];
+          this.products = this.productService.homePageProducts;
+        } else {
+          this.errMsg = (response.data as ErrorModel).errMsg;
+        }
+      });
+    } else {
+      this.products = this.productService.homePageProducts;
+    }
   }
 
   addToCart(i: number, j: number, productVO: ProductVoModel) {

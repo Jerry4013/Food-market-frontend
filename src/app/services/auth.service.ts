@@ -9,11 +9,11 @@ import {PasswordModel} from '../models/password.model';
 
 @Injectable()
 export class AuthService {
-
+  tempuser = new UserModel(1,
+  'youareremoved', 'ohoh123', 'Three Zhang',
+  'abc@gmail.com', '1234567', '124124 sdfka, QC');
   userChanged = new Subject<UserModel>();
-  user: UserModel = new UserModel(1,
-    'youareremoved', 'ohoh123', 'Three Zhang',
-    'abc@gmail.com', '1234567', '124124 sdfka, QC');
+  user: UserModel;
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +26,7 @@ export class AuthService {
         environment.baseUrl + environment.user + environment.login,
         {},
         {
-          headers: new HttpHeaders({ 'withCredentials': 'true'}),
+          headers: new HttpHeaders({ withCredentials: 'true'}),
           params: myParams
         }
       );

@@ -14,7 +14,8 @@ export class OrderService {
   cartChanged = new Subject<number>();
   cartItems: OrderItem[] = [];
   itemNumberInCart = 0;
-  orderList: Order[];
+  orderList: Order[] = [];
+  sellerOrderList: Order[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +26,20 @@ export class OrderService {
       .get<ReturnModel>(
         environment.baseUrl + environment.order + environment.listByBuyer,
         {
-          headers: new HttpHeaders({ 'withCredentials': 'true'}),
+          headers: new HttpHeaders({ withCredentials: 'true'}),
+          params: myParams
+        }
+      );
+  }
+
+  listByOwner(ownerId: number) {
+    let myParams = new HttpParams();
+    myParams = myParams.append('ownerId', String(ownerId));
+    return this.http
+      .get<ReturnModel>(
+        environment.baseUrl + environment.order + environment.listByOwner,
+        {
+          headers: new HttpHeaders({ withCredentials: 'true'}),
           params: myParams
         }
       );
@@ -77,7 +91,21 @@ export class OrderService {
         environment.baseUrl + environment.order + environment.pay,
         {},
         {
-          headers: new HttpHeaders({ 'withCredentials': 'true'}),
+          headers: new HttpHeaders({ withCredentials: 'true'}),
+          params: myParams
+        }
+      );
+  }
+
+  finish(orderId: string) {
+    let myParams = new HttpParams();
+    myParams = myParams.append('orderId', orderId);
+    return this.http
+      .put<ReturnModel>(
+        environment.baseUrl + environment.order + environment.finish,
+        {},
+        {
+          headers: new HttpHeaders({ withCredentials: 'true'}),
           params: myParams
         }
       );

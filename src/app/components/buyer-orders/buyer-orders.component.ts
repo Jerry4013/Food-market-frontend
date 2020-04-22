@@ -23,7 +23,7 @@ export class BuyerOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.authService.user;
-    if (this.orderService.orderList == null) {
+    if (this.orderService.orderList.length === 0) {
       this.orderService.listByBuyer(this.user.id).subscribe(response => {
         if (response.status === 'success' ) {
           this.orderService.orderList = response.data as Order[];
@@ -32,8 +32,20 @@ export class BuyerOrdersComponent implements OnInit {
           this.errMsg = (response.data as ErrorModel).errMsg;
         }
       });
+    } else {
+      this.orderList = this.orderService.orderList;
     }
-    this.orderList = this.orderService.orderList;
+    this.authService.userChanged.subscribe(user => {
+      this.user = user;
+      this.orderService.listByBuyer(this.user.id).subscribe(response => {
+        if (response.status === 'success' ) {
+          this.orderService.orderList = response.data as Order[];
+          this.orderList = this.orderService.orderList;
+        } else {
+          this.errMsg = (response.data as ErrorModel).errMsg;
+        }
+      });
+    });
   }
 
   confirmPay(amount: number, i: number) {
@@ -48,7 +60,15 @@ export class BuyerOrdersComponent implements OnInit {
           () => {
             this.orderService.listByBuyer(this.user.id).subscribe(response => {
               if (response.status === 'success' ) {
+                this.orderService.orderList = response.data as Order[];
                 this.orderList = response.data as Order[];
+              } else {
+                this.errMsg = (response.data as ErrorModel).errMsg;
+              }
+            });
+            this.orderService.listByOwner(this.user.id).subscribe(response => {
+              if (response.status === 'success' ) {
+                this.orderService.sellerOrderList = response.data as Order[];
               } else {
                 this.errMsg = (response.data as ErrorModel).errMsg;
               }

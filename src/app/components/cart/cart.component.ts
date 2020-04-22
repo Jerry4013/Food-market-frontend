@@ -7,6 +7,7 @@ import {OrderService} from '../../services/order.service';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {OrderFormModel} from '../../models/order-form.model';
 import {ErrorModel} from '../../models/error.model';
+import {Order} from '../../models/order.model';
 
 @Component({
   selector: 'app-cart',
@@ -42,6 +43,7 @@ export class CartComponent implements OnInit {
         const orderForm = new OrderFormModel(this.user.id, buyerName, buyerPhone, buyerAddress, orderItems);
         this.orderService.createOrder(orderForm).subscribe(response => {
           if (response.status === 'success' ) {
+            this.orderService.orderList.push(response.data as Order);
             this.orderItems = [];
             this.orderService.cartItems = [];
             this.orderService.itemNumberInCart = 0;

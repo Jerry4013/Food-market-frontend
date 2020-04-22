@@ -13,6 +13,7 @@ export const environment = {
 
   order: '/order',
   listByBuyer: '/listByBuyer',
+  listByOwner: '/listByOwner',
   pay: '/pay',
   findByOrderId: '/findByOrderId',
   finish: '/finish',

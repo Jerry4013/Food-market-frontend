@@ -10,6 +10,8 @@ import {BuyerOrdersComponent} from './components/buyer-orders/buyer-orders.compo
 import {SellerProductComponent} from './components/seller-product/seller-product.component';
 import {AddProductComponent} from './components/add-product/add-product.component';
 import {CartComponent} from './components/cart/cart.component';
+import {ProductEditComponent} from './components/product-edit/product-edit.component';
+import {SellerOrderComponent} from './components/seller-order/seller-order.component';
 
 
 const routes: Routes = [
@@ -25,7 +27,9 @@ const routes: Routes = [
       {path: 'buyerorders', component: BuyerOrdersComponent},
       {path: 'sellerproducts', component: SellerProductComponent},
       {path: 'addproduct', component: AddProductComponent},
+      {path: 'editproduct', component: ProductEditComponent},
       {path: 'cart', component: CartComponent},
+      {path: 'sellerorders', component: SellerOrderComponent},
     ]
   }];
 

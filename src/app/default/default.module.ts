@@ -39,6 +39,10 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ProductInfoComponent } from '../components/home/product-info/product-info.component';
 import { PayconfirmComponent } from '../components/buyer-orders/payconfirm/payconfirm.component';
 import {PaystatusPipe} from '../pipes/paystatus.pipe';
+import { ProductEditComponent } from '../components/product-edit/product-edit.component';
+import {ProductstatusPipe} from '../pipes/productstatus.pipe';
+import { SellerOrderComponent } from '../components/seller-order/seller-order.component';
+import { FinishconfirmComponent } from '../components/seller-order/finishconfirm/finishconfirm.component';
 
 
 
@@ -56,11 +60,15 @@ import {PaystatusPipe} from '../pipes/paystatus.pipe';
     BuyerOrdersComponent,
     OrderstatusPipe,
     PaystatusPipe,
+    ProductstatusPipe,
     SellerProductComponent,
     AddProductComponent,
     CartComponent,
     ProductInfoComponent,
-    PayconfirmComponent
+    PayconfirmComponent,
+    ProductEditComponent,
+    SellerOrderComponent,
+    FinishconfirmComponent
   ],
   imports: [
     MatTableModule,

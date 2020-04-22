@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import {UserModel} from '../../models/user.model';
-import {AuthService} from '../../services/auth.service';
-import {Router} from '@angular/router';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {NgForm} from '@angular/forms';
-import {ErrorModel} from '../../models/error.model';
 import {CategoryModel} from '../../models/category.model';
 import {ProductModel} from '../../models/product.model';
-import {MatSelectChange} from '@angular/material/select';
+import {AuthService} from '../../services/auth.service';
 import {ProductService} from '../../services/product.service';
+import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {ErrorModel} from '../../models/error.model';
+import {NgForm} from '@angular/forms';
 import {ProductCategoryVoModel} from '../../models/product-category-vo.model';
+import {MatSelectChange} from '@angular/material/select';
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.scss']
+  selector: 'app-product-edit',
+  templateUrl: './product-edit.component.html',
+  styleUrls: ['./product-edit.component.scss']
 })
-export class AddProductComponent implements OnInit {
+export class ProductEditComponent implements OnInit {
 
   user: UserModel;
   errMsg: string;
@@ -31,11 +31,6 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.authService.user;
-    this.authService.userChanged.subscribe(
-      user => {
-        this.user = user;
-      }
-    );
     this.productService.findAllCategory().subscribe( response => {
       if (response.status === 'success' ) {
         this.categories = response.data as CategoryModel[];
@@ -43,13 +38,14 @@ export class AddProductComponent implements OnInit {
         this.errMsg = (response.data as ErrorModel).errMsg;
       }
     });
+    this.product = this.productService.product;
   }
 
   onSubmit(f: NgForm) {
     const v = f.value;
-    this.product = new ProductModel('', v.name, v.price, v.stock,
+    this.product = new ProductModel(this.product.productId, v.name, v.price, v.stock,
       v.description, v.image, 0, this.category, this.user.id);
-    this.productService.createProduct(this.product).subscribe(response => {
+    this.productService.updateProduct(this.product).subscribe(response => {
       if (response.status === 'success' ) {
         this.productService.listAllForSale().subscribe( res => {
           if (res.status === 'success' ) {
@@ -66,7 +62,7 @@ export class AddProductComponent implements OnInit {
             this.errMsg = (response2.data as ErrorModel).errMsg;
           }
         });
-        this.snackBar.open('New dish created!', 'done', {
+        this.snackBar.open('Dish has been updated!', 'done', {
           duration: 4000,
         });
       } else {
