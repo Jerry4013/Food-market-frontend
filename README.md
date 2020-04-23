@@ -2,15 +2,15 @@
 
 ## How to run
 
-Need npm and node.js.
+* Step 1: install npm and node.js
 
-* Step 1: install the Angular CLI
+* Step 2: install the Angular CLI
 
 ```
 npm install -g @angular/cli
 ```
 
-* Step 2: Run it
+* Step 3: Run it
 
 Clone this project in your own computer. In the project folder:
 
