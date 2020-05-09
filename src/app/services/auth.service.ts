@@ -38,7 +38,7 @@ export class AuthService {
         environment.baseUrl + environment.user + environment.pwdchange,
         passwordModel,
         {
-          headers: new HttpHeaders({ 'withCredentials': 'true'}),
+          headers: new HttpHeaders({ withCredentials: 'true'}),
         }
       );
   }
@@ -49,7 +49,7 @@ export class AuthService {
         environment.baseUrl + environment.user + environment.new,
         userModel,
         {
-          headers: new HttpHeaders({ 'withCredentials': 'true'}),
+          headers: new HttpHeaders({ withCredentials: 'true'}),
         }
       );
   }
@@ -60,7 +60,7 @@ export class AuthService {
         environment.baseUrl + environment.user + environment.infochange,
         userModel,
         {
-          headers: new HttpHeaders({ 'withCredentials': 'true'}),
+          headers: new HttpHeaders({ withCredentials: 'true'}),
         }
       );
   }

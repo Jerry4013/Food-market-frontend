@@ -2,7 +2,6 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
 import {UserModel} from '../../models/user.model';
-import {Subject, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +11,6 @@ import {Subject, Subscription} from 'rxjs';
 export class HeaderComponent implements OnInit {
 
   user: UserModel;
-  userSub: Subscription;
 
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
@@ -20,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.authService.user;
-    this.userSub = this.authService.userChanged.subscribe(
+    this.authService.userChanged.subscribe(
       user => {
         this.user = user;
       }
